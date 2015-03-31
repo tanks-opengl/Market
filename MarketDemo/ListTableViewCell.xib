@@ -14,9 +14,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gigbyte some interesting video adapter and prpcessor inside this computer" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AfZ-im-nTc">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default name" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AfZ-im-nTc">
                         <rect key="frame" x="74" y="0.0" width="170" height="60"/>
-                        <color key="backgroundColor" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="YCL-Bm-kvO"/>
                         </constraints>
@@ -31,9 +30,8 @@
                             <constraint firstAttribute="width" constant="60" id="odF-j8-VXQ"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена 54 грн" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snB-lb-6KL">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snB-lb-6KL">
                         <rect key="frame" x="252" y="0.0" width="60" height="60"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="4UW-Jf-Akh"/>
                             <constraint firstAttribute="width" constant="60" id="EPm-L5-Lsr"/>
@@ -54,9 +52,9 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="itemImage" destination="R84-tb-I6K" id="aNO-ud-BlC"/>
                 <outlet property="itemName" destination="AfZ-im-nTc" id="SHq-S5-urB"/>
                 <outlet property="itemPrice" destination="snB-lb-6KL" id="bi4-Su-Xuc"/>
-                <outlet property="listImage" destination="R84-tb-I6K" id="IuS-mQ-8co"/>
             </connections>
             <point key="canvasLocation" x="446" y="640"/>
         </tableViewCell>

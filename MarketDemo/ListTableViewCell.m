@@ -12,12 +12,18 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.itemImage.layer.masksToBounds = YES;
+    self.itemImage.layer.cornerRadius = 45;// make image rounded
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (NSString *) reuseIdentifier {
+    return @"listCellIdentifier";
 }
 
 @end

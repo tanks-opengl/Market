@@ -10,7 +10,7 @@
 
 @interface ListTableViewCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UIImageView *listImage;
+@property (strong, nonatomic) IBOutlet UIImageView *itemImage;
 @property (strong, nonatomic) IBOutlet UILabel *itemName;
 @property (strong, nonatomic) IBOutlet UILabel *itemPrice;
 
