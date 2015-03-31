@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="113" id="KGk-i7-Jjw" customClass="ListTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gigbyte some interesting video adapter and prpcessor inside this computer" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AfZ-im-nTc">
+                        <rect key="frame" x="74" y="0.0" width="170" height="60"/>
+                        <color key="backgroundColor" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="YCL-Bm-kvO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stub.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="R84-tb-I6K">
+                        <rect key="frame" x="6" y="0.0" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="fPO-wu-Mko"/>
+                            <constraint firstAttribute="width" constant="60" id="odF-j8-VXQ"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Цена 54 грн" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snB-lb-6KL">
+                        <rect key="frame" x="252" y="0.0" width="60" height="60"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="4UW-Jf-Akh"/>
+                            <constraint firstAttribute="width" constant="60" id="EPm-L5-Lsr"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="AfZ-im-nTc" firstAttribute="leading" secondItem="R84-tb-I6K" secondAttribute="trailing" constant="8" id="XTI-Kg-1w3"/>
+                    <constraint firstItem="snB-lb-6KL" firstAttribute="leading" secondItem="AfZ-im-nTc" secondAttribute="trailing" constant="8" id="Z9W-Aw-JVk"/>
+                    <constraint firstItem="R84-tb-I6K" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-2" id="cdk-h9-lBB"/>
+                    <constraint firstItem="AfZ-im-nTc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="k16-u7-Ksi"/>
+                    <constraint firstItem="snB-lb-6KL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="mMQ-UC-ZSG"/>
+                    <constraint firstItem="snB-lb-6KL" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="wnD-Bz-U7E"/>
+                    <constraint firstItem="R84-tb-I6K" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="zNg-fI-lTW"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="itemName" destination="AfZ-im-nTc" id="SHq-S5-urB"/>
+                <outlet property="itemPrice" destination="snB-lb-6KL" id="bi4-Su-Xuc"/>
+                <outlet property="listImage" destination="R84-tb-I6K" id="IuS-mQ-8co"/>
+            </connections>
+            <point key="canvasLocation" x="446" y="640"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="stub.jpeg" width="225" height="225"/>
+    </resources>
+</document>

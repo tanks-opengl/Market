@@ -7,6 +7,7 @@
 //
 
 #import "MainTableViewController.h"
+#import "ListTableViewCell.h"
 
 @interface MainTableViewController ()
 
@@ -14,9 +15,19 @@
 
 @implementation MainTableViewController
 
+- (NSString *) reuseIdentifier {
+    return @"listCellIdentifier";
+}
+
+#pragma mark cell size
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self.tableView registerNib:[UINib nibWithNibName:@"ListTableViewCell" bundle:nil] forCellReuseIdentifier:@"listCellIdentifier"];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -40,7 +51,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reuseIdentifier" forIndexPath:indexPath];
+    ListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"listCellIdentifier" forIndexPath:indexPath];
     
     // Configure the cell...
     
