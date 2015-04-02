@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MarketListItem.h"
+#import "DetailListItem.h"
 
 @interface Parser : NSObject
+
++ (NSMutableArray *)parseListItems:(NSMutableData *)data;
++ (NSMutableArray *)parseCurrentItem:(NSMutableData *)data;
 
 @end

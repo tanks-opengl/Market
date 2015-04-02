@@ -21,11 +21,13 @@
 
 #pragma mark cell size
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     return 60;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     //Register custom cell
@@ -34,11 +36,19 @@
     self.imageDownloadsInProgress = [NSMutableDictionary dictionary];
     self.listItems = [NSMutableArray array];
     
+    ServerMethods *server = [[ServerMethods alloc]init];
+    server.complationHandler = ^(NSMutableData *data){
+        self.listItems = [Parser parseListItems:data];
+        [self.tableView reloadData];
+    };
+    [server loadListItems];
+    
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
 
     NSUInteger count = self.listItems.count;
     
@@ -53,12 +63,14 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     [self performSegueWithIdentifier:@"detailSegue" sender:self];
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     ListTableViewCell *cell = nil;
     
     NSUInteger nodeCount = self.listItems.count;
@@ -81,7 +93,7 @@
             MarketListItem *item = (self.listItems)[indexPath.row];
             
             cell.itemName.text = item.name;
-            cell.itemPrice.text = item.price;
+            cell.itemPrice.text = [NSString stringWithFormat:@"Цена\n%@\nгрн",item.price];
             
             // Only load cached images; defer new downloads until scrolling ends
             if (!item.image)
@@ -118,7 +130,7 @@
             ListTableViewCell *cell = (ListTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
             
             // Display the newly loaded image
-            cell.imageView.image = record.image;
+            cell.itemImage.image = record.image;
             
             // Remove the IconDownloader from the in progress list.
             // This will result in it being deallocated.
@@ -169,7 +181,8 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender 
+{
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }

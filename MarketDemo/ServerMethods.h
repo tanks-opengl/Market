@@ -10,7 +10,9 @@
 
 @interface ServerMethods : NSObject
 
-@property (nonatomic, strong) NSURLConnection *connection;
-@property (nonatomic, copy) void (^completionHandler)(void);
+@property (nonatomic, strong) void (^complationHandler)(NSMutableData *);
+
+- (void)loadListItems;
+- (void)loadCurrentItem;
 
 @end

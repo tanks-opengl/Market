@@ -11,6 +11,8 @@
 
 @interface MarketListItem : NSObject
 
+@property (strong, nonatomic) NSString *itemId;
+
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *price;
 @property (strong, nonatomic) NSString *imageURL;

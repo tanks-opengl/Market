@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ServerMethods.h"
+#import "Parser.h"
 
 @interface MainTableViewController : UITableViewController
 
-@property (nonatomic, strong) NSArray *listItems;
+@property (nonatomic, strong) NSMutableArray *listItems;
 
 @end

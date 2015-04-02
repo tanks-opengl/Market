@@ -19,6 +19,8 @@
 		212A144B1ACC2DC000A06625 /* MarketListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 212A144A1ACC2DC000A06625 /* MarketListItem.m */; };
 		212A144E1ACD238B00A06625 /* ServerMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 212A144D1ACD238B00A06625 /* ServerMethods.m */; };
 		212A14521ACD33CE00A06625 /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 212A14511ACD33CE00A06625 /* Parser.m */; };
+		212A14541ACD72A100A06625 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212A14531ACD72A100A06625 /* QuartzCore.framework */; };
+		212A14591ACD74F300A06625 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212A14581ACD74F300A06625 /* CoreGraphics.framework */; };
 		213C74571ACA8A19002EA174 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 213C74561ACA8A19002EA174 /* DetailViewController.m */; };
 		213C745E1ACA8FC6002EA174 /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 213C745C1ACA8FC6002EA174 /* ListTableViewCell.m */; };
 		213C745F1ACA8FC6002EA174 /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 213C745D1ACA8FC6002EA174 /* ListTableViewCell.xib */; };
@@ -59,6 +61,8 @@
 		212A144D1ACD238B00A06625 /* ServerMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerMethods.m; sourceTree = "<group>"; };
 		212A14501ACD33CE00A06625 /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
 		212A14511ACD33CE00A06625 /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
+		212A14531ACD72A100A06625 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		212A14581ACD74F300A06625 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		213C74551ACA8A19002EA174 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		213C74561ACA8A19002EA174 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		213C745B1ACA8FC6002EA174 /* ListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableViewCell.h; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				212A14591ACD74F300A06625 /* CoreGraphics.framework in Frameworks */,
+				212A14541ACD72A100A06625 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +99,8 @@
 		2108ECE21AC94B9C003C24DD = {
 			isa = PBXGroup;
 			children = (
+				212A14581ACD74F300A06625 /* CoreGraphics.framework */,
+				212A14531ACD72A100A06625 /* QuartzCore.framework */,
 				2108ECED1AC94B9C003C24DD /* MarketDemo */,
 				2108ED0A1AC94B9C003C24DD /* MarketDemoTests */,
 				2108ECEC1AC94B9C003C24DD /* Products */,

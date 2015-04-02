@@ -10,19 +10,23 @@
 
 @implementation ListTableViewCell
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     // Initialization code
-    self.itemImage.layer.masksToBounds = YES;
-    self.itemImage.layer.cornerRadius = 45;// make image rounded
+    self.itemImage.layer.cornerRadius = self.itemImage.frame.size.width / 2;
+    self.itemImage.clipsToBounds = YES;
+
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
 }
 
-- (NSString *) reuseIdentifier {
+- (NSString *) reuseIdentifier
+{
     return @"listCellIdentifier";
 }
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="flP-HF-ltj">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -26,14 +27,24 @@
                             <outlet property="delegate" destination="70U-a9-3tX" id="JqP-cY-fI6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="fa2-Xk-FHt"/>
+                    <navigationItem key="navigationItem" id="fa2-Xk-FHt">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="GAX-tA-IkL">
+                            <rect key="frame" x="184" y="8" width="233" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Каталог"/>
+                                <segment title="Просмотренные"/>
+                            </segments>
+                        </segmentedControl>
+                    </navigationItem>
                     <connections>
                         <segue destination="BuI-Bk-ZYF" kind="show" identifier="detailSegue" id="b8D-T4-8aU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5CX-EN-8m8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1178" y="435"/>
+            <point key="canvasLocation" x="1178" y="434"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Aga-XP-Jfg">
@@ -47,16 +58,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWp-xS-JpN">
-                                <rect key="frame" x="144" y="72" width="440" height="40"/>
-                                <color key="backgroundColor" red="0.2340391517" green="0.65958305029999997" blue="0.28147530120000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="bAd-8L-1Hy"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stub.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="n0n-ai-3Ef">
                                 <rect key="frame" x="7" y="72" width="120" height="120"/>
                                 <constraints>
@@ -64,16 +65,43 @@
                                     <constraint firstAttribute="height" constant="120" id="fcb-oL-4Wc"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZw-Hp-Mhb">
+                                <rect key="frame" x="144" y="125" width="440" height="45"/>
+                                <color key="backgroundColor" red="1" green="0.70291940789999996" blue="0.02055921053" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="UzR-bj-syQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWp-xS-JpN">
+                                <rect key="frame" x="144" y="72" width="440" height="45"/>
+                                <color key="backgroundColor" red="0.2340391517" green="0.65958305029999997" blue="0.28147530120000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="bAd-8L-1Hy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="n0n-ai-3Ef" firstAttribute="leading" secondItem="fjy-0p-ycy" secondAttribute="leadingMargin" constant="-9" id="9zJ-1U-iqs"/>
                             <constraint firstItem="bWp-xS-JpN" firstAttribute="leading" secondItem="n0n-ai-3Ef" secondAttribute="trailing" constant="17" id="RY6-6q-fQ6"/>
                             <constraint firstItem="bWp-xS-JpN" firstAttribute="top" secondItem="YdE-Jx-2ht" secondAttribute="bottom" constant="8" id="TWR-5a-LmU"/>
+                            <constraint firstItem="DZw-Hp-Mhb" firstAttribute="top" secondItem="bWp-xS-JpN" secondAttribute="bottom" constant="8" id="V55-qL-RYb"/>
+                            <constraint firstItem="DZw-Hp-Mhb" firstAttribute="leading" secondItem="n0n-ai-3Ef" secondAttribute="trailing" constant="17" id="Vrs-lk-eAJ"/>
                             <constraint firstItem="bWp-xS-JpN" firstAttribute="trailing" secondItem="fjy-0p-ycy" secondAttribute="trailingMargin" id="atc-lr-C7j"/>
                             <constraint firstItem="n0n-ai-3Ef" firstAttribute="top" secondItem="YdE-Jx-2ht" secondAttribute="bottom" constant="8" id="t0C-uf-Q6Y"/>
+                            <constraint firstItem="DZw-Hp-Mhb" firstAttribute="trailing" secondItem="fjy-0p-ycy" secondAttribute="trailingMargin" id="z23-5d-HzS"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="categoryLabel" destination="bWp-xS-JpN" id="2XZ-p5-edL"/>
+                        <outlet property="itemImage" destination="n0n-ai-3Ef" id="nXY-zq-5re"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D97-Fh-B2Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
