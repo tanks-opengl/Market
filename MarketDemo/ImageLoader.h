@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MarketListItem.h"
 
 @interface ImageLoader : NSObject
+
+@property (nonatomic, strong) MarketListItem *listItem;
+@property (nonatomic, copy) void (^completionHandler)(void);
+
+- (void)startDownload;
+- (void)cancelDownload;
 
 @end

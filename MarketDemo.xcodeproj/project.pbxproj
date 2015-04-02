@@ -16,6 +16,9 @@
 		2108ED0E1AC94B9C003C24DD /* MarketDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2108ED0D1AC94B9C003C24DD /* MarketDemoTests.m */; };
 		2108ED1A1AC94CA4003C24DD /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2108ED191AC94CA4003C24DD /* MainTableViewController.m */; };
 		2108ED1C1AC97832003C24DD /* stub.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2108ED1B1AC97832003C24DD /* stub.jpeg */; };
+		212A144B1ACC2DC000A06625 /* MarketListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 212A144A1ACC2DC000A06625 /* MarketListItem.m */; };
+		212A144E1ACD238B00A06625 /* ServerMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 212A144D1ACD238B00A06625 /* ServerMethods.m */; };
+		212A14521ACD33CE00A06625 /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 212A14511ACD33CE00A06625 /* Parser.m */; };
 		213C74571ACA8A19002EA174 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 213C74561ACA8A19002EA174 /* DetailViewController.m */; };
 		213C745E1ACA8FC6002EA174 /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 213C745C1ACA8FC6002EA174 /* ListTableViewCell.m */; };
 		213C745F1ACA8FC6002EA174 /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 213C745D1ACA8FC6002EA174 /* ListTableViewCell.xib */; };
@@ -50,6 +53,12 @@
 		2108ED181AC94CA4003C24DD /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
 		2108ED191AC94CA4003C24DD /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
 		2108ED1B1AC97832003C24DD /* stub.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stub.jpeg; sourceTree = "<group>"; };
+		212A14491ACC2DC000A06625 /* MarketListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketListItem.h; sourceTree = "<group>"; };
+		212A144A1ACC2DC000A06625 /* MarketListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketListItem.m; sourceTree = "<group>"; };
+		212A144C1ACD238B00A06625 /* ServerMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerMethods.h; sourceTree = "<group>"; };
+		212A144D1ACD238B00A06625 /* ServerMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerMethods.m; sourceTree = "<group>"; };
+		212A14501ACD33CE00A06625 /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
+		212A14511ACD33CE00A06625 /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
 		213C74551ACA8A19002EA174 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		213C74561ACA8A19002EA174 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		213C745B1ACA8FC6002EA174 /* ListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableViewCell.h; sourceTree = "<group>"; };
@@ -102,6 +111,8 @@
 		2108ECED1AC94B9C003C24DD /* MarketDemo */ = {
 			isa = PBXGroup;
 			children = (
+				212A144F1ACD333D00A06625 /* Utils */,
+				212A14481ACC2D9C00A06625 /* Classes */,
 				2108ECF21AC94B9C003C24DD /* AppDelegate.h */,
 				2108ECF31AC94B9C003C24DD /* AppDelegate.m */,
 				2108ED171AC94C15003C24DD /* Controllers */,
@@ -155,6 +166,24 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		212A14481ACC2D9C00A06625 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				212A14491ACC2DC000A06625 /* MarketListItem.h */,
+				212A144A1ACC2DC000A06625 /* MarketListItem.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		212A144F1ACD333D00A06625 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				212A14501ACD33CE00A06625 /* Parser.h */,
+				212A14511ACD33CE00A06625 /* Parser.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		213C74581ACA8A55002EA174 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +200,8 @@
 			children = (
 				213D310C1ACAE8D10097CB44 /* ImageLoader.h */,
 				213D310D1ACAE8D10097CB44 /* ImageLoader.m */,
+				212A144C1ACD238B00A06625 /* ServerMethods.h */,
+				212A144D1ACD238B00A06625 /* ServerMethods.m */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -287,14 +318,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				212A144B1ACC2DC000A06625 /* MarketListItem.m in Sources */,
 				213C74571ACA8A19002EA174 /* DetailViewController.m in Sources */,
 				213D310E1ACAE8D10097CB44 /* ImageLoader.m in Sources */,
 				213D310B1ACAE3C10097CB44 /* DetailListItem.m in Sources */,
+				212A14521ACD33CE00A06625 /* Parser.m in Sources */,
 				2108ED1A1AC94CA4003C24DD /* MainTableViewController.m in Sources */,
 				2108ECF71AC94B9C003C24DD /* MarketDemo.xcdatamodeld in Sources */,
 				213D31081ACAE3970097CB44 /* ListItem.m in Sources */,
 				213C745E1ACA8FC6002EA174 /* ListTableViewCell.m in Sources */,
 				2108ECF41AC94B9C003C24DD /* AppDelegate.m in Sources */,
+				212A144E1ACD238B00A06625 /* ServerMethods.m in Sources */,
 				2108ECF11AC94B9C003C24DD /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

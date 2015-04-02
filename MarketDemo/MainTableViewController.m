@@ -8,8 +8,12 @@
 
 #import "MainTableViewController.h"
 #import "ListTableViewCell.h"
+#import "ImageLoader.h"
+#import "ListTableViewCell.h"
 
 @interface MainTableViewController ()
+
+@property (nonatomic, strong) NSMutableDictionary *imageDownloadsInProgress;
 
 @end
 
@@ -27,14 +31,24 @@
     //Register custom cell
     [self.tableView registerNib:[UINib nibWithNibName:@"ListTableViewCell" bundle:nil] forCellReuseIdentifier:@"listCellIdentifier"];
     
+    self.imageDownloadsInProgress = [NSMutableDictionary dictionary];
+    self.listItems = [NSMutableArray array];
+    
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    // Return the number of rows in the section.
-    return 1;
+    NSUInteger count = self.listItems.count;
+    
+    // if there's no data yet, return enough rows to fill the screen
+    if (count == 0)
+    {
+        return 1;
+    }
+    return count;
+    
 }
 
 #pragma mark - Table view delegate
@@ -45,12 +59,109 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"listCellIdentifier" forIndexPath:indexPath];
+    ListTableViewCell *cell = nil;
     
-    // Configure the cell...
+    NSUInteger nodeCount = self.listItems.count;
     
+    if (nodeCount == 0 && indexPath.row == 0)
+    {
+        // add a placeholder cell while waiting on table data
+        cell = [tableView dequeueReusableCellWithIdentifier:@"listCellIdentifier" forIndexPath:indexPath];
+        cell.itemImage.image = nil;
+        cell.itemName.text = @"Loading…";
+    }
+    else
+    {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"listCellIdentifier" forIndexPath:indexPath];
+        
+        // Leave cells empty if there's no data yet
+        if (nodeCount > 0)
+        {
+            // Set up the cell representing the app
+            MarketListItem *item = (self.listItems)[indexPath.row];
+            
+            cell.itemName.text = item.name;
+            cell.itemPrice.text = item.price;
+            
+            // Only load cached images; defer new downloads until scrolling ends
+            if (!item.image)
+            {
+                if (self.tableView.dragging == NO && self.tableView.decelerating == NO)
+                {
+                    [self startIconDownload:item forIndexPath:indexPath];
+                }
+                // if a download is deferred or in progress, return a placeholder image
+                cell.itemImage.image = [UIImage imageNamed:@"stub.jpeg"];
+            }
+            else
+            {
+                cell.itemImage.image = item.image;
+            }
+        }
+    }
     
     return cell;
+
+}
+
+#pragma mark - Table cell image support
+
+- (void)startIconDownload:(MarketListItem *)record forIndexPath:(NSIndexPath *)indexPath
+{
+    ImageLoader *imageLoader = (self.imageDownloadsInProgress)[indexPath];
+    if (imageLoader == nil)
+    {
+        imageLoader = [[ImageLoader alloc] init];
+        imageLoader.listItem = record;
+        [imageLoader setCompletionHandler:^{
+            
+            ListTableViewCell *cell = (ListTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+            
+            // Display the newly loaded image
+            cell.imageView.image = record.image;
+            
+            // Remove the IconDownloader from the in progress list.
+            // This will result in it being deallocated.
+            [self.imageDownloadsInProgress removeObjectForKey:indexPath];
+            
+        }];
+        (self.imageDownloadsInProgress)[indexPath] = imageLoader;
+        [imageLoader startDownload];
+    }
+}
+
+- (void)loadImagesForOnscreenRows
+{
+    if (self.listItems.count > 0)
+    {
+        NSArray *visiblePaths = [self.tableView indexPathsForVisibleRows];
+        for (NSIndexPath *indexPath in visiblePaths)
+        {
+            MarketListItem *item = (self.listItems)[indexPath.row];
+            
+            if (!item.image)
+                // Avoid the app icon download if the app already has an icon
+            {
+                [self startIconDownload:item forIndexPath:indexPath];
+            }
+        }
+    }
+}
+
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (!decelerate)
+    {
+        [self loadImagesForOnscreenRows];
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self loadImagesForOnscreenRows];
 }
 
 

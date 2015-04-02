@@ -10,4 +10,6 @@
 
 @interface MainTableViewController : UITableViewController
 
+@property (nonatomic, strong) NSArray *listItems;
+
 @end
