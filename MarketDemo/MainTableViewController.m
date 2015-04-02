@@ -7,6 +7,7 @@
 //
 
 #import "MainTableViewController.h"
+#import "DetailViewController.h"
 #import "ListTableViewCell.h"
 #import "ImageLoader.h"
 #import "ListTableViewCell.h"
@@ -34,9 +35,9 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"ListTableViewCell" bundle:nil] forCellReuseIdentifier:@"listCellIdentifier"];
     
     self.imageDownloadsInProgress = [NSMutableDictionary dictionary];
-    self.listItems = [NSMutableArray array];
+    self.listItems                = [NSMutableArray array];
     
-    ServerMethods *server = [[ServerMethods alloc]init];
+    ServerMethods *server    = [[ServerMethods alloc]init];
     server.complationHandler = ^(NSMutableData *data){
         self.listItems = [Parser parseListItems:data];
         [self.tableView reloadData];
@@ -177,15 +178,19 @@
 }
 
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender 
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([[segue identifier] isEqualToString:@"detailSegue"])
+    {
+        NSUInteger selectedRow = [[self.tableView indexPathForSelectedRow] row];
+        MarketListItem *item = [self.listItems objectAtIndex:selectedRow];
+        [[segue destinationViewController] setItemId:item.itemId];
+    }
+   
 }
-*/
+
 
 @end

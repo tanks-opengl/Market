@@ -9,7 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailViewController : UIViewController
+{
+    NSString *itemID;
+}
+
 @property (strong, nonatomic) IBOutlet UIImageView *itemImage;
 @property (strong, nonatomic) IBOutlet UILabel *categoryLabel;
+
+
+- (void)setItemID:(NSString *)itemID;
 
 @end

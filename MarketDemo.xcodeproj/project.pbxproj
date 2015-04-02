@@ -21,6 +21,7 @@
 		212A14521ACD33CE00A06625 /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 212A14511ACD33CE00A06625 /* Parser.m */; };
 		212A14541ACD72A100A06625 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212A14531ACD72A100A06625 /* QuartzCore.framework */; };
 		212A14591ACD74F300A06625 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 212A14581ACD74F300A06625 /* CoreGraphics.framework */; };
+		212A145F1ACD890100A06625 /* WatchedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212A145E1ACD890100A06625 /* WatchedTableViewController.m */; };
 		213C74571ACA8A19002EA174 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 213C74561ACA8A19002EA174 /* DetailViewController.m */; };
 		213C745E1ACA8FC6002EA174 /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 213C745C1ACA8FC6002EA174 /* ListTableViewCell.m */; };
 		213C745F1ACA8FC6002EA174 /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 213C745D1ACA8FC6002EA174 /* ListTableViewCell.xib */; };
@@ -63,6 +64,8 @@
 		212A14511ACD33CE00A06625 /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
 		212A14531ACD72A100A06625 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		212A14581ACD74F300A06625 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		212A145D1ACD890100A06625 /* WatchedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchedTableViewController.h; sourceTree = "<group>"; };
+		212A145E1ACD890100A06625 /* WatchedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchedTableViewController.m; sourceTree = "<group>"; };
 		213C74551ACA8A19002EA174 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		213C74561ACA8A19002EA174 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		213C745B1ACA8FC6002EA174 /* ListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableViewCell.h; sourceTree = "<group>"; };
@@ -170,6 +173,8 @@
 				213C74561ACA8A19002EA174 /* DetailViewController.m */,
 				2108ED181AC94CA4003C24DD /* MainTableViewController.h */,
 				2108ED191AC94CA4003C24DD /* MainTableViewController.m */,
+				212A145D1ACD890100A06625 /* WatchedTableViewController.h */,
+				212A145E1ACD890100A06625 /* WatchedTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -326,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				212A145F1ACD890100A06625 /* WatchedTableViewController.m in Sources */,
 				212A144B1ACC2DC000A06625 /* MarketListItem.m in Sources */,
 				213C74571ACA8A19002EA174 /* DetailViewController.m in Sources */,
 				213D310E1ACAE8D10097CB44 /* ImageLoader.m in Sources */,

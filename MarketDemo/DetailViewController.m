@@ -14,6 +14,11 @@
 
 @implementation DetailViewController
 
+- (void)setItemID:(NSString *)itemID
+{
+    self.itemID = itemID;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
