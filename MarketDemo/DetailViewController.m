@@ -16,9 +16,9 @@
 
 @implementation DetailViewController
 
-- (void)setItemIdentifier:(NSString *)item
+- (void)setMarketListItemObject:(MarketListItem *)item
 {
-    self.itemID = item;
+    self.marketObject = item;
 }
 
 - (void)viewDidLoad
@@ -27,12 +27,14 @@
     
     self.currentItem = [NSMutableArray array];
     
+    [self saveItem];
+    
     ServerMethods *server    = [[ServerMethods alloc]init];
     server.complationHandler = ^(NSMutableData *data){
         self.currentItem = [Parser parseCurrentItem:data];
         [self updateViews];
     };
-    [server loadCurrentItem:self.itemID];
+    [server loadCurrentItem:self.marketObject.itemId];
     
 }
 
@@ -69,5 +71,42 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (NSManagedObjectContext *)managedObjectContext
+{
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    
+    if ([delegate performSelector:@selector(managedObjectContext)])
+    {
+        context = [delegate managedObjectContext];
+    }
+    
+    return context;
+}
+
+- (void)saveItem
+{
+    DetailListItem *item = [self.currentItem firstObject];
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    if (context) {
+        NSManagedObject *itemModel = [NSEntityDescription insertNewObjectForEntityForName:@"ListItem" inManagedObjectContext:context];
+        
+        [itemModel setValue:item.itemId forKey:@"id"];
+        [itemModel setValue:item.itemName forKey:@"name"];
+        [itemModel setValue:item.itemPrice forKey:@"price"];
+        NSData *imageData = UIImagePNGRepresentation(self.itemImage.image);
+        [itemModel setValue:imageData forKey:@"image"];
+    
+        NSError *error;
+        
+        if (![context save:&error])
+        {
+            NSLog(@"Error saving item!!!");
+        }
+    }
+}
 
 @end

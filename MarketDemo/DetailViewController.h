@@ -10,6 +10,7 @@
 #import "ServerMethods.h"
 #import "Parser.h"
 #import "ImageDownloader.h"
+#import <CoreData/CoreData.h>
 
 @interface DetailViewController : UIViewController
 
@@ -19,8 +20,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
 @property (strong, nonatomic) IBOutlet UILabel *priceLabel;
 
-@property (strong, nonatomic) NSString *itemID;
+@property (strong, nonatomic) MarketListItem *marketObject;
 
-- (void)setItemIdentifier:(NSString *)item;
+- (void)setMarketListItemObject:(MarketListItem *)item;
 
 @end

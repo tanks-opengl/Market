@@ -53,7 +53,6 @@
 
     NSUInteger count = self.listItems.count;
     
-    // if there's no data yet, return enough rows to fill the screen
     if (count == 0)
     {
         return 1;
@@ -187,7 +186,7 @@
     {
         NSUInteger selectedRow = [[self.tableView indexPathForSelectedRow] row];
         MarketListItem *item = [self.listItems objectAtIndex:selectedRow];
-        [[segue destinationViewController] setItemID:item.itemId];
+        [[segue destinationViewController] setMarketListItemObject:item];
     }
    
 }
