@@ -13,6 +13,6 @@
 @property (nonatomic, strong) void (^complationHandler)(NSMutableData *);
 
 - (void)loadListItems;
-- (void)loadCurrentItem;
+- (void)loadCurrentItem:(NSString *)itemId;
 
 @end

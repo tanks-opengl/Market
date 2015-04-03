@@ -187,7 +187,7 @@
     {
         NSUInteger selectedRow = [[self.tableView indexPathForSelectedRow] row];
         MarketListItem *item = [self.listItems objectAtIndex:selectedRow];
-        [[segue destinationViewController] setItemId:item.itemId];
+        [[segue destinationViewController] setItemID:item.itemId];
     }
    
 }

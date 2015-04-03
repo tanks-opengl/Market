@@ -28,6 +28,7 @@
 		213D31081ACAE3970097CB44 /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 213D31071ACAE3970097CB44 /* ListItem.m */; };
 		213D310B1ACAE3C10097CB44 /* DetailListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 213D310A1ACAE3C10097CB44 /* DetailListItem.m */; };
 		213D310E1ACAE8D10097CB44 /* ImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 213D310D1ACAE8D10097CB44 /* ImageLoader.m */; };
+		2150E4BD1ACEB19300B64FF2 /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2150E4BC1ACEB19300B64FF2 /* ImageDownloader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		213D310A1ACAE3C10097CB44 /* DetailListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailListItem.m; sourceTree = "<group>"; };
 		213D310C1ACAE8D10097CB44 /* ImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLoader.h; sourceTree = "<group>"; };
 		213D310D1ACAE8D10097CB44 /* ImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLoader.m; sourceTree = "<group>"; };
+		2150E4BB1ACEB19300B64FF2 /* ImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloader.h; sourceTree = "<group>"; };
+		2150E4BC1ACEB19300B64FF2 /* ImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +214,8 @@
 		213C74591ACA8A5E002EA174 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2150E4BB1ACEB19300B64FF2 /* ImageDownloader.h */,
+				2150E4BC1ACEB19300B64FF2 /* ImageDownloader.m */,
 				213D310C1ACAE8D10097CB44 /* ImageLoader.h */,
 				213D310D1ACAE8D10097CB44 /* ImageLoader.m */,
 				212A144C1ACD238B00A06625 /* ServerMethods.h */,
@@ -343,6 +348,7 @@
 				213C745E1ACA8FC6002EA174 /* ListTableViewCell.m in Sources */,
 				2108ECF41AC94B9C003C24DD /* AppDelegate.m in Sources */,
 				212A144E1ACD238B00A06625 /* ServerMethods.m in Sources */,
+				2150E4BD1ACEB19300B64FF2 /* ImageDownloader.m in Sources */,
 				2108ECF11AC94B9C003C24DD /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

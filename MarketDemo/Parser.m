@@ -18,15 +18,21 @@
     
     NSArray *items = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&errorParse];
     
-    if (!errorParse) {
-        for (NSDictionary *item in items) {
+    if (!errorParse)
+    {
+        for (NSDictionary *item in items)
+        {
             MarketListItem *marketItem = [[MarketListItem alloc]init];
-            marketItem.name = item[@"name"];
-            marketItem.price = [item[@"price"] description];
+            
+            marketItem.itemId   = item[@"id"];
+            marketItem.name     = item[@"name"];
+            marketItem.price    = [item[@"price"] description];
             marketItem.imageURL = item[@"imageURL"];
-            marketItem.itemId = item[@"id"];
+            
             [array addObject:marketItem];
         }
+    } else {
+        //Handle error
     }
     
     return array;
@@ -36,6 +42,28 @@
 {
     NSMutableArray *array = [NSMutableArray array];
     
+    NSError *errorParse;
+    
+    NSDictionary *item = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&errorParse];
+    
+    if (!errorParse)
+    {
+        
+        DetailListItem *currentItem = [[DetailListItem alloc]init];
+            
+        currentItem.itemId             = item[@"id"];
+        currentItem.itemName           = item[@"name"];
+        currentItem.itemPrice          = item[@"price"];
+        currentItem.itemAmount         = item[@"amount"];
+        currentItem.itemCategory       = item[@"category"];
+        currentItem.itemParentCategory = item[@"parent_category"];
+        currentItem.itemImageURL       = item[@"imageURL"];
+        
+        [array addObject:currentItem];
+        
+    } else {
+        //Handle error
+    }
     
     return array;
 }

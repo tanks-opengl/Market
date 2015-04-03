@@ -10,19 +10,47 @@
 
 @interface DetailViewController ()
 
+@property (strong, nonatomic) NSMutableArray *currentItem;
+
 @end
 
 @implementation DetailViewController
 
-- (void)setItemID:(NSString *)itemID
+- (void)setItemIdentifier:(NSString *)item
 {
-    self.itemID = itemID;
+    self.itemID = item;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.currentItem = [NSMutableArray array];
+    
+    ServerMethods *server    = [[ServerMethods alloc]init];
+    server.complationHandler = ^(NSMutableData *data){
+        self.currentItem = [Parser parseCurrentItem:data];
+        [self updateViews];
+    };
+    [server loadCurrentItem:self.itemID];
+    
+}
+
+- (void)updateViews
+{
+    DetailListItem *item = [self.currentItem firstObject];
+    
+    self.categoryLabel.text = [NSString stringWithFormat:@"%@ : %@",item.itemParentCategory,item.itemCategory];
+    self.nameLabel.text = item.itemName;
+    self.amountLabel.text = [NSString stringWithFormat:@"Всего в наличии %@ шт.",item.itemAmount];
+    self.priceLabel.text = [NSString stringWithFormat:@"Цена %@ грн.",item.itemPrice];
+    
+    ImageDownloader *loader = [[ImageDownloader alloc]initWithStringURL:item.itemImageURL];
+    loader.completionHandler = ^(NSMutableData *data){
+        self.itemImage.image = [UIImage imageWithData:data];
+    };
+    [loader startDownload];
+    
 }
 
 - (void)didReceiveMemoryWarning

@@ -7,16 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ServerMethods.h"
+#import "Parser.h"
+#import "ImageDownloader.h"
 
 @interface DetailViewController : UIViewController
-{
-    NSString *itemID;
-}
 
 @property (strong, nonatomic) IBOutlet UIImageView *itemImage;
 @property (strong, nonatomic) IBOutlet UILabel *categoryLabel;
+@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *amountLabel;
+@property (strong, nonatomic) IBOutlet UILabel *priceLabel;
 
+@property (strong, nonatomic) NSString *itemID;
 
-- (void)setItemID:(NSString *)itemID;
+- (void)setItemIdentifier:(NSString *)item;
 
 @end

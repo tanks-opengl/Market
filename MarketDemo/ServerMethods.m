@@ -28,9 +28,10 @@
     self.connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
 }
 
-- (void)loadCurrentItem
+- (void)loadCurrentItem:(NSString *)itemId
 {
-    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",CURRENT_ITEM_URL,itemId]]];
+    self.connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
 }
 
 #pragma mark - NSURLConnectionDelegate
@@ -59,9 +60,11 @@
 {
     NSLog(@"%@",[[NSString alloc]initWithData:self.data encoding:NSUTF8StringEncoding]);
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    switch (self.code) {
+    switch (self.code)
+    {
         case 200:
-            if (self.complationHandler) {
+            if (self.complationHandler)
+            {
                 self.complationHandler(self.data);
             }
             break;
