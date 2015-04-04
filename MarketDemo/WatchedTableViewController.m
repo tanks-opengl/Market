@@ -7,6 +7,7 @@
 //
 
 #import "WatchedTableViewController.h"
+#import "ListTableViewCell.h"
 
 @interface WatchedTableViewController ()
 
@@ -85,10 +86,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"listCellIdentifier" forIndexPath:indexPath];
-    
     // Configure the cell...
     NSManagedObject *item = [self.watchedItems objectAtIndex:indexPath.row];
-    NSString *s = [item valueForKey:@"name"];
     cell.itemName.text = [item valueForKey:@"name"];
     cell.itemPrice.text = [NSString stringWithFormat:@"Цена\n%@\nгрн",[item valueForKey:@"price"]];
     UIImage *image = [UIImage imageWithData:[item valueForKey:@"image"]];
