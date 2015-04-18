@@ -27,12 +27,11 @@
     
     self.currentItem = [NSMutableArray array];
     
-    [self saveItem];
-    
     ServerMethods *server    = [[ServerMethods alloc]init];
     server.complationHandler = ^(NSMutableData *data){
         self.currentItem = [Parser parseCurrentItem:data];
         [self updateViews];
+        [self saveItem];
     };
     [server loadCurrentItem:self.marketObject.itemId];
     
@@ -94,10 +93,10 @@
     if (context) {
         NSManagedObject *itemModel = [NSEntityDescription insertNewObjectForEntityForName:@"ListItem" inManagedObjectContext:context];
         
-        [itemModel setValue:item.itemId forKey:@"id"];
+        [itemModel setValue:[item.itemId stringValue] forKey:@"id"];
         [itemModel setValue:item.itemName forKey:@"name"];
-        [itemModel setValue:item.itemPrice forKey:@"price"];
-        NSData *imageData = UIImagePNGRepresentation(self.itemImage.image);
+        [itemModel setValue:[item.itemPrice stringValue] forKey:@"price"];
+        NSData *imageData = UIImagePNGRepresentation(self.marketObject.image);
         [itemModel setValue:imageData forKey:@"image"];
     
         NSError *error;
